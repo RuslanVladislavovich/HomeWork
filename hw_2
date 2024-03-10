@@ -1,0 +1,67 @@
+s = "fgyHGytegbdhwGG105"
+print("original str:", s)
+
+"""
+2.1. Написать функцию, которая получает на вход строку и возвращает строку,
+в которой все буквы латинского алфавита из исходной строки преобразованы в заглавные символы.
+Использовать функции стандартной библиотеки upper() и find() нельзя.
+"""
+
+# Заведём соответствующую функцию (укажу тип входных и выходных данных)
+def letters_up_changer_2(s: str) -> str:
+    alphabet_dict = {"a": "A", "b": "B", "c": "C", "d": "D", "e": "E", "f": "F", "g": "G",
+                     "h": "H", "i": "I", "j": "J", "k": "K", "l": "L", "m": "M", "n": "N",
+                     "o": "O", "p": "P", "q": "Q", "r": "R", "s": "S", "t": "T", "u": "U",
+                     "v": "V", "w": "W", "x": "X", "y": "Y", "z": "Z"}
+    table = "".maketrans(alphabet_dict)
+    # Переведём строку в список
+    s_list = []
+    s_list[:] = s
+    # Заведём список для изменённых элементов
+    s_list_changed = []
+    # Проверим элементы на соответствие условию задачи
+    for i in s_list:
+        if i.isalpha() == True and i.islower() == True:
+            s_list_changed.append(i.translate(table))
+        else:
+            s_list_changed.append(i)
+    s_changed = "".join(s_list_changed)
+    print("upper str:", s_changed)
+letters_up_changer_2(s)
+
+"""
+2.2.  ...преобразованием всех символов входящей строки в прописные 
+"""
+# Та же задача, но наоборот
+def letters_low_changer(s: str) -> str:
+    upper_dict_str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower_dict_str = "abcdefghijklmnopqrstuvwxyz"
+    table = "".maketrans(upper_dict_str, lower_dict_str)
+    s_list = []
+    s_list[:] = s
+    s_list_changed = []
+    for i in s_list:
+        if i.isalpha() == True and i.isupper() == True:
+            s_list_changed.append(i.translate(table))
+        else:
+            s_list_changed.append(i)
+    s_changed = "".join(s_list_changed)
+    print("lower str:", s_changed)
+
+letters_low_changer(s)
+
+"""
+2.3.  ...изменить регистр элементов строки
+"""
+def swap_case(s: str) ->str:
+    s_changed = s.swapcase()
+    print("swapped str:", s_changed)
+
+swap_case(s)
+
+"""
+2.4. Написать программу на Python3, которая сначала запрашивает положительное число-основание системы счисления, 
+затем два числа в системе счисления с этим основанием, и потом четвертое число-основание системы счисления, 
+в которой надо вывести результат. В ходе выполнения программа возвращает результат сложения двух чисел 
+в требуемой системе счисления. Нельзя использовать для перевода функцию int().
+"""
