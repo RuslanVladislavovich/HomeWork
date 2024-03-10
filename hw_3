@@ -1,0 +1,12 @@
+'''
+вычисление n-ного члена последовательности Фибоначчи с помощью рекурсии
+'''
+
+def fib_n_recursive(n):
+    'вычисляет значение n-ного члена последовательности Фибоначи рекурсивно'
+    if n in (1, 2):
+        return 1
+    else:
+        return fib_n_recursive(n - 1) + fib_n_recursive(n - 2)
+
+print(fib_n_recursive(5))
