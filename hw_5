@@ -11,11 +11,11 @@ def fun(alphabet: str):
         'вычисляет частотут встречаемости символов'
         # создадим словарь: ключи - это символы, значения - частота встречаемости в последовательности
         stat_lib = {}
+        for i in alphabet:
+            stat_lib[i] = 0
         for i in seq:
             if i in stat_lib:
                 stat_lib[i] += 1
-            else:
-                stat_lib[i] = 1
         print(stat_lib)
         return stat_lib
     return stat(seq)
